@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CodeFix — Find the bug. Understand the error. Fix your code.</title>
+<meta name="description" content="CodeFix is a beginner-friendly static code analysis tool that finds common coding mistakes and explains how to fix them." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Skip link for accessibility -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand" aria-label="CodeFix home">
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="brand-name">Code<span class="accent">Fix</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#editor">CodeFix</a>
+      <a href="#features">Features</a>
+      <a href="#history">History</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO / LANDING ============ -->
+  <section class="hero" id="home">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Static analysis, right in your browser</p>
+      <h1 class="hero-title">Find the bug.<br>Understand the error.<br><span class="accent">Fix your code.</span></h1>
+      <p class="hero-sub">
+        CodeFix reads your code line by line, flags the mistakes beginners make most often,
+        and explains — in plain English — what went wrong and how to fix it. No installs, no servers, no signup.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="startDebuggingBtn">Start Debugging</button>
+        <button class="btn btn-ghost" id="tryExampleBtn">Try an Example</button>
+      </div>
+
+      <div class="hero-stats" id="heroStats" aria-label="Session statistics">
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="statTotalHero">0</span>
+          <span class="hero-stat-label">Analyses run</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="statErrorsHero">0</span>
+          <span class="hero-stat-label">Issues found</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="statFixedHero">0</span>
+          <span class="hero-stat-label">Fixes suggested</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <h2 class="section-title">What CodeFix does for you</h2>
+      <p class="section-sub">A focused toolkit for spotting the mistakes that trip up beginners.</p>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Instant error detection</h3>
+          <p>Scans your code for missing semicolons, unclosed brackets, indentation issues, and more — the moment you click Analyze.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>Plain-English explanations</h3>
+          <p>Every issue comes with a "why it happens" explanation, written for people who are still learning to code.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🛠️</div>
+          <h3>Suggested fixes</h3>
+          <p>See a corrected version side-by-side with your original code, and copy the fix with one click.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🗂️</div>
+          <h3>Analysis history</h3>
+          <p>Every analysis is saved locally so you can revisit, filter by language, or clear it whenever you like.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">⌨️</div>
+          <h3>Keyboard-first workflow</h3>
+          <p>Analyze, clear, and copy without leaving the keyboard — built for a real coding workflow.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>100% client-side</h3>
+          <p>Your code never leaves your browser. Nothing is uploaded, executed, or stored on any server.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SUPPORTED LANGUAGES ============ -->
+  <section class="languages" id="languages">
+    <div class="section-inner">
+      <h2 class="section-title">Supported languages</h2>
+      <p class="section-sub">Seven languages, each with its own rule set.</p>
+      <div class="lang-chip-row">
+        <span class="lang-chip">Java</span>
+        <span class="lang-chip">Python</span>
+        <span class="lang-chip">C</span>
+        <span class="lang-chip">C++</span>
+        <span class="lang-chip">JavaScript</span>
+        <span class="lang-chip">HTML</span>
+        <span class="lang-chip">CSS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="how-it-works" id="how">
+    <div class="section-inner">
+      <h2 class="section-title">How it works</h2>
+      <div class="steps-row">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Paste your code</h3>
+          <p>Drop your code into the editor and pick the language, or load a ready-made example.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Click Analyze</h3>
+          <p>CodeFix runs a set of rule-based checks written specifically for that language.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Read the breakdown</h3>
+          <p>See what's wrong, why it happens, and a suggested fix — line by line.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Fix and learn</h3>
+          <p>Apply the fix, understand the pattern, and avoid the same mistake next time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CODE EDITOR / CODEFIX TOOL ============ -->
+  <section class="tool" id="editor">
+    <div class="section-inner">
+      <h2 class="section-title">Analyze your code</h2>
+      <p class="section-sub">Static code analysis &amp; beginner error detection — not a full compiler.</p>
+
+      <div class="tool-toolbar">
+        <div class="lang-select-wrap">
+          <label for="languageSelect">Language</label>
+          <select id="languageSelect" aria-label="Select programming language">
+            <option value="java">Java</option>
+            <option value="python">Python</option>
+            <option value="c">C</option>
+            <option value="cpp">C++</option>
+            <option value="javascript" selected>JavaScript</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+          </select>
+        </div>
+
+        <div class="toolbar-buttons">
+          <button class="btn btn-small" id="loadExampleBtn" title="Load example code (contains intentional bugs)">Load Example</button>
+          <button class="btn btn-small" id="copyCodeBtn" title="Copy code (Ctrl+Shift+C)">Copy Code</button>
+          <button class="btn btn-small btn-danger" id="clearCodeBtn" title="Clear editor (Ctrl+L)">Clear</button>
+        </div>
+      </div>
+
+      <div class="editor-wrap">
+        <div class="editor-gutter" id="editorGutter" aria-hidden="true">1</div>
+        <textarea
+          id="codeInput"
+          class="editor-textarea"
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="off"
+          aria-label="Code editor"
+          placeholder="// Paste or type your code here, then click Analyze Code..."
+        ></textarea>
+      </div>
+
+      <div class="editor-footer">
+        <span id="charCount" class="char-count">0 characters · 1 line</span>
+        <button class="btn btn-primary btn-large" id="analyzeBtn">
+          <span aria-hidden="true">⚡</span> Analyze Code
+        </button>
+      </div>
+
+      <p class="shortcut-hint">
+        Shortcuts: <kbd>Ctrl</kbd>+<kbd>Enter</kbd> Analyze · <kbd>Ctrl</kbd>+<kbd>L</kbd> Clear · <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> Copy
+      </p>
+
+      <!-- ============ RESULTS DASHBOARD ============ -->
+      <div id="resultsSection" class="results-section" hidden aria-live="polite">
+        <div class="results-header">
+          <h3 id="resultsSummary">Analysis Results</h3>
+          <span id="resultsMeta" class="results-meta"></span>
+        </div>
+
+        <div id="resultsList" class="results-list"></div>
+
+        <div class="fix-code-action">
+          <button class="btn btn-primary btn-large fix-code-btn" id="fixCodeBtn" hidden aria-label="Automatically fix the detected issues">
+            <span aria-hidden="true">✨</span> Fix Code
+          </button>
+          <p id="fixStatusMessage" class="fix-status-message" hidden aria-live="polite"></p>
+        </div>
+
+        <div id="comparisonBlock" class="comparison-block" hidden>
+          <h3>Code Comparison</h3>
+          <div class="comparison-grid">
+            <div class="comparison-col">
+              <div class="comparison-col-head">Your Code</div>
+              <pre id="originalCodeView" class="code-view"></pre>
+            </div>
+            <div class="comparison-col">
+              <div class="comparison-col-head">Suggested Fix</div>
+              <pre id="fixedCodeView" class="code-view"></pre>
+              <button class="btn btn-small btn-primary" id="copyFixedBtn">Copy Fixed Code</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATISTICS ============ -->
+  <section class="stats" id="stats">
+    <div class="section-inner">
+      <h2 class="section-title">Your statistics</h2>
+      <p class="section-sub">Stored locally in your browser — nothing leaves your device.</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-value" id="statTotal">0</span>
+          <span class="stat-label">Total Analyses</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statErrors">0</span>
+          <span class="stat-label">Errors Detected</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statFixed">0</span>
+          <span class="stat-label">Fixes Suggested</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statSession">0</span>
+          <span class="stat-label">Current Session</span>
+        </div>
+      </div>
+      <button class="btn btn-ghost btn-danger-outline" id="resetStatsBtn">Reset Statistics</button>
+    </div>
+  </section>
+
+  <!-- ============ HISTORY ============ -->
+  <section class="history" id="history">
+    <div class="section-inner">
+      <h2 class="section-title">Analysis history</h2>
+      <p class="section-sub">Your last analyses, saved on this device.</p>
+
+      <div class="history-controls">
+        <label for="historyFilter" class="sr-only">Filter history by language</label>
+        <select id="historyFilter" aria-label="Filter history by language">
+          <option value="all">All Languages</option>
+          <option value="java">Java</option>
+          <option value="python">Python</option>
+          <option value="c">C</option>
+          <option value="cpp">C++</option>
+          <option value="javascript">JavaScript</option>
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+        </select>
+        <button class="btn btn-small btn-danger" id="clearHistoryBtn">Clear All History</button>
+      </div>
+
+      <div id="historyList" class="history-list">
+        <p class="empty-state">No analyses yet. Run your first analysis above to see it here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="section-inner about-inner">
+      <h2 class="section-title">About CodeFix</h2>
+      <p>
+        CodeFix is a beginner-friendly static code analysis tool designed to help students understand
+        common programming mistakes and learn how to fix them. It looks for well-known patterns —
+        missing semicolons, unclosed brackets, bad indentation, missing colons — and explains each one
+        in plain language, the way a patient mentor would.
+      </p>
+      <p>
+        <strong>CodeFix is not a compiler or interpreter.</strong> It does not execute your code and cannot
+        catch every possible error, especially logic errors or issues that depend on how your program runs.
+        For complete verification, always compile or run your code with a real language toolchain.
+      </p>
+      <div class="keyboard-help">
+        <h3>Keyboard shortcuts</h3>
+        <ul>
+          <li><kbd>Ctrl</kbd> + <kbd>Enter</kbd> — Analyze the current code</li>
+          <li><kbd>Ctrl</kbd> + <kbd>L</kbd> — Clear the editor</li>
+          <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> — Copy the current code</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="brand-name">Code<span class="accent">Fix</span></span>
+    </div>
+    <p class="footer-tag">Find the bug. Understand the error. Fix your code.</p>
+    <p class="footer-note">Built with HTML, CSS &amp; JavaScript · All analysis runs locally in your browser · Not a substitute for a real compiler.</p>
+  </div>
+</footer>
+
+<!-- Toast for friendly messages -->
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="script.js"></script>
+</body>
+</html>
