@@ -2,7 +2,7 @@
 
 **Find the bug. Understand the error. Fix your code.**
 
-CodeFix is a beginner-friendly, 100% client-side static code analysis tool. Paste your code, pick a language, click **Analyze Code**, and get a plain-English breakdown of common mistakes — what's wrong, why it happens, and how to fix it.
+CodeFix is a beginner-friendly, 100% client-side static code analysis tool. Paste your code, pick a language, click **Analyze Code**, and get a plain-English breakdown of common mistakes — what's wrong, why it happens, and how to fix it...
 
 No installs. No servers. No signup. No backend. Your code never leaves your browser.
 
